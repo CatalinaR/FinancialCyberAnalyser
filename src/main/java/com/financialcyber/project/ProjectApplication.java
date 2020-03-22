@@ -14,12 +14,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 @SpringBootApplication
 public class ProjectApplication {
 
-	private static final String API_key ="";
+	private static final Map<String, String> env = System.getenv();
+	private static final String API_key =  env.get("API_ALPHA_VANTAGE");
 
 	public static List<String> getTradingData(String stockName) throws IOException, ParseException {
 		String urlName_base = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=";
