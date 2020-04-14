@@ -1,37 +1,40 @@
 package com.financialcyber.project;
 
+import com.financialcyber.project.entity.Article;
+import com.financialcyber.project.repository.ArticleRepository;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
-import javax.print.DocFlavor;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.sql.SQLOutput;
 import java.util.*;
 
 @SpringBootApplication
 public class ProjectApplication {
 
 	private static final Map<String, String> env = System.getenv();
-	private static final String API_key_alpha =  env.get("API_ALPHA_VANTAGE");
-	private static final String API_key_guardian =  env.get("API_GUARDIAN");
+	private static final String API_ALPHA =  env.get("API_ALPHA_VANTAGE");
+	private static final String API_GUARDIAN =  env.get("API_GUARDIAN");
+
+
 
 
 	public static String constructURLNews(String pageNumber){
-		String urlName_base = "http://content.guardianapis.com/search?q=data-computer-security&section=technology&page="+pageNumber;
-		return urlName_base + "&api-key=" + API_key_guardian;
+		String urlName = "http://content.guardianapis.com/search?q=data-computer-security&section=technology&page="+pageNumber;
+		return urlName + "&api-key=" + API_GUARDIAN;
 	}
 
 	public static String constructURLStocks(String function, String stockName){
-		String urlName_base = "https://www.alphavantage.co/query?function="+ function + "&symbol=";
-		return  urlName_base + stockName + "&apikey=" + API_key_alpha;
+		String urlName = "https://www.alphavantage.co/query?function="+ function + "&symbol=";
+		return  urlName + stockName + "&apikey=" + API_ALPHA;
 	}
 
 
@@ -43,7 +46,7 @@ public class ProjectApplication {
 		int responsecode = conn.getResponseCode();
 		JSONObject objectReturn;
 		if(responsecode!=200){
-			throw new RuntimeException("HTTP status " + responsecode);
+			throw new NullPointerException();
 		} else{
 			String inline = "";
 			Scanner sc = new Scanner(url.openStream());
@@ -63,7 +66,6 @@ public class ProjectApplication {
 
 	public static Map<String, String> processJsonMetadata(JSONObject objectInput){
 		Map<String, String> metadata = new HashMap<>();
-		System.out.println(objectInput.get("Meta Data"));
 		String meta = objectInput.get("Meta Data").toString();
 		String[] entries = meta.split(",");
 
@@ -87,9 +89,9 @@ public class ProjectApplication {
 		return metadata;
 	}
 
+
 	public static Map<String, Map<String, String>> processJsonStocks(JSONObject objectInput) throws ParseException {
 		Map<String, Map<String, String>> stockValues = new HashMap<>();
-		System.out.println(objectInput.get("Time Series (Daily)"));
 		String stocks =objectInput.get("Time Series (Daily)").toString();
 		JSONParser parse = new JSONParser();
 		JSONObject jsonObj = (JSONObject) parse.parse(stocks);
@@ -145,18 +147,18 @@ public class ProjectApplication {
 	public static void main(String[] args) throws IOException, ParseException {
 		SpringApplication.run(ProjectApplication.class, args);
 		JSONObject obj = getURLData(constructURLStocks("TIME_SERIES_DAILY", "AAPL"));
-		Map<String, String> processR = processJsonMetadata(obj);
-		processR.forEach((a, b) -> System.out.println(a + " " + b));
-		Map<String, Map<String, String>> result = processJsonStocks(obj);
-		System.out.println(result.toString());
+		processJsonMetadata(obj);
+		processJsonStocks(obj);
 
 		JSONObject obj2 = getURLData(constructURLNews("1"));
-		Map<Integer, Map<String, String>> proceessR = processNewsMetaData(obj2);
-		for(Integer elem : proceessR.keySet()){
-			Map<String, String> e = proceessR.get(elem);
-			e.forEach((a,b) -> System.out.println(a + "   " + b));
-		}
+		 processNewsMetaData(obj2);
 
+	}
+
+	@Bean
+	public CommandLineRunner populateDB(ArticleRepository repository){
+		return args ->
+				repository.save(new Article(" My data security is better than yours: tech CEOs throw shade in privacy wars", "https://www.theguardian.com/technology/2019/may/09/google-sundar-pichai-privacy-apple-facebook-data","technology/2019/may/09/google-sundar-pichai-privacy-apple-facebook-data", "2020-01-08T14:05:35Z" ));
 	}
 
 
