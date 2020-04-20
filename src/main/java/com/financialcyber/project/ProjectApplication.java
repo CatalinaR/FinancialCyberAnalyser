@@ -25,8 +25,6 @@ public class ProjectApplication {
 	private static final String API_GUARDIAN =  env.get("API_GUARDIAN");
 
 
-
-
 	public static String constructURLNews(String pageNumber){
 		String urlName = "http://content.guardianapis.com/search?q=data-computer-security&section=technology&page="+pageNumber;
 		return urlName + "&api-key=" + API_GUARDIAN;
@@ -148,10 +146,10 @@ public class ProjectApplication {
 		SpringApplication.run(ProjectApplication.class, args);
 		JSONObject obj = getURLData(constructURLStocks("TIME_SERIES_DAILY", "AAPL"));
 		processJsonMetadata(obj);
-		processJsonStocks(obj);
 
 		JSONObject obj2 = getURLData(constructURLNews("1"));
 		 processNewsMetaData(obj2);
+
 
 	}
 
