@@ -1,15 +1,12 @@
 package com.financialcyber.project;
 
-import com.financialcyber.project.entity.Article;
-import com.financialcyber.project.repository.ArticleRepository;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 import java.io.IOException;
 
@@ -150,14 +147,6 @@ public class ProjectApplication {
 		JSONObject obj2 = getURLData(constructURLNews("1"));
 		 processNewsMetaData(obj2);
 
-
 	}
-
-	@Bean
-	public CommandLineRunner populateDB(ArticleRepository repository){
-		return args ->
-				repository.save(new Article(" My data security is better than yours: tech CEOs throw shade in privacy wars", "https://www.theguardian.com/technology/2019/may/09/google-sundar-pichai-privacy-apple-facebook-data","technology/2019/may/09/google-sundar-pichai-privacy-apple-facebook-data", "2020-01-08T14:05:35Z" ));
-	}
-
 
 }
