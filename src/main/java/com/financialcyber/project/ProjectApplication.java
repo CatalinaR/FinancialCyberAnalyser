@@ -13,7 +13,9 @@ import java.io.IOException;
 import static com.financialcyber.project.services.CaptureDataImpl.*;
 
 @SpringBootApplication
-public class ProjectApplication {
+public class ProjectApplication  {
+
+
 
 	public static void main(String[] args) throws IOException, ParseException {
 		SpringApplication.run(ProjectApplication.class, args);
@@ -22,6 +24,8 @@ public class ProjectApplication {
 
 		JSONObject obj2 = CaptureDataImpl.getURLData(CaptureDataImpl.constructURLNews("1"));
 		CaptureDataImpl.processNewsMetaData(obj2);
+
 	}
+
 
 }

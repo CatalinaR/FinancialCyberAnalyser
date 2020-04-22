@@ -12,16 +12,21 @@ public class Article {
     private Integer id;
 
     @Column(name="title")
-    private final String articleTitle;
+    private String articleTitle;
 
     @Column(name="web_URL")
-    private final String webURL;
+    private  String webURL;
 
     @Column(name="web_id")
-    private final String webID;
+    private  String webID;
 
     @Column(name="article_date")
-    private final LocalDateTime articleDate;
+    private LocalDateTime articleDate;
+
+    public Article(){
+
+    }
+
 
     public Article(String articleTitle, String webURL, String webID, LocalDateTime articleDate){
         this.articleTitle = articleTitle;
