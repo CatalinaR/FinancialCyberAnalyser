@@ -2,6 +2,7 @@ package com.financialcyber.project;
 
 
 import com.financialcyber.project.services.CaptureDataImpl;
+import com.financialcyber.project.services.InsertDataImpl;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.springframework.boot.SpringApplication;
@@ -19,11 +20,13 @@ public class ProjectApplication  {
 
 	public static void main(String[] args) throws IOException, ParseException {
 		SpringApplication.run(ProjectApplication.class, args);
-		JSONObject obj = getURLData(CaptureDataImpl.constructURLStocks("TIME_SERIES_DAILY", "AAPL"));
-		CaptureDataImpl.processJsonMetadata(obj);
+//		JSONObject obj = getURLData(CaptureDataImpl.constructURLStocks("TIME_SERIES_DAILY", "AAPL"));
+//		CaptureDataImpl.processJsonMetadata(obj);
+//
+//		JSONObject obj2 = CaptureDataImpl.getURLData(CaptureDataImpl.constructURLNews("1"));
+//		CaptureDataImpl.processNewsMetaData(obj2);
 
-		JSONObject obj2 = CaptureDataImpl.getURLData(CaptureDataImpl.constructURLNews("1"));
-		CaptureDataImpl.processNewsMetaData(obj2);
+		//InsertDataImpl.printToFile();
 
 	}
 
