@@ -1,20 +1,3 @@
-INSERT INTO article (article_id, title, web_URL, web_id, article_date) VALUES (1, 'title', 'url','technology/2019/may/09/google-sundar-pichai-privacy-apple-facebook-data', '2020-01-08T14:05:35Z' );
-
-
-
-INSERT INTO article (title, web_URL, web_id, article_date) VALUES ('Zoom releases security updates in response to  Zoom-bombings ','https://www.theguardian.com/technology/2020/apr/23/zoom-update-security-encryption-bombing','technology/2020/apr/23/zoom-update-security-encryption-bombing','2020-04-23T21:19:35Z');
-INSERT INTO article (title, web_URL, web_id, article_date) VALUES ('Can computers ever replace the classroom?','https://www.theguardian.com/technology/2020/mar/19/can-computers-ever-replace-the-classroom','technology/2020/mar/19/can-computers-ever-replace-the-classroom','2020-03-19T06:00:46Z');
-INSERT INTO article (title, web_URL, web_id, article_date) VALUES ('Zoom says engineers will focus on security and safety issues','https://www.theguardian.com/technology/2020/apr/02/zoom-says-engineers-will-focus-on-security-and-safety-issues','technology/2020/apr/02/zoom-says-engineers-will-focus-on-security-and-safety-issues','2020-04-02T16:33:39Z');
-INSERT INTO article (title, web_URL, web_id, article_date) VALUES ('UK Google users could lose EU GDPR data protections','https://www.theguardian.com/technology/2020/feb/20/uk-google-users-to-lose-eu-gdpr-data-protections-brexit','technology/2020/feb/20/uk-google-users-to-lose-eu-gdpr-data-protections-brexit','2020-02-20T12:01:39Z');
-INSERT INTO article (title, web_URL, web_id, article_date) VALUES ('UK rebuffs US presentation on Huawei security risks','https://www.theguardian.com/technology/2020/jan/14/uk-rebuffs-us-presentation-on-huawei-security-risks','technology/2020/jan/14/uk-rebuffs-us-presentation-on-huawei-security-risks','2020-01-14T15:21:52Z');
-INSERT INTO article (title, web_URL, web_id, article_date) VALUES ('Ring Alarm review: Amazon s smart security upgrade','https://www.theguardian.com/technology/2019/dec/12/ring-alarm-review-amazon-diy-wireless-home-security-system','technology/2019/dec/12/ring-alarm-review-amazon-diy-wireless-home-security-system','2019-12-12T07:00:01Z');
-INSERT INTO article (title, web_URL, web_id, article_date) VALUES ('How to stop your smart home spying on you','https://www.theguardian.com/technology/2020/mar/08/how-to-stop-your-smart-home-spying-on-you-lightbulbs-doorbell-ring-google-assistant-alexa-privacy','technology/2020/mar/08/how-to-stop-your-smart-home-spying-on-you-lightbulbs-doorbell-ring-google-assistant-alexa-privacy','2020-03-08T13:00:35Z');
-INSERT INTO article (title, web_URL, web_id, article_date) VALUES ('EU: UK can call Trump s bluff  over Huawei security','https://www.theguardian.com/technology/2020/jan/16/eu-trade-commissioner-will-call-trumps-bluff-over-huawei-security','technology/2020/jan/16/eu-trade-commissioner-will-call-trumps-bluff-over-huawei-security','2020-01-16T16:34:55Z');
-INSERT INTO article (title, web_URL, web_id, article_date) VALUES ('â€˜Zoom is malwareâ€™: why experts worry about the video conferencing platform','https://www.theguardian.com/technology/2020/apr/02/zoom-technology-security-coronavirus-video-conferencing','technology/2020/apr/02/zoom-technology-security-coronavirus-video-conferencing','2020-04-02T14:23:55Z');
-INSERT INTO article (title, web_URL, web_id, article_date) VALUES ('My data security is better than yours: tech CEOs throw shade in privacy wars','https://www.theguardian.com/technology/2019/may/09/google-sundar-pichai-privacy-apple-facebook-data','technology/2019/may/09/google-sundar-pichai-privacy-apple-facebook-data','2019-05-09T10:00:38Z');
-
-
-
 INSERT INTO article (stockName, volume, high, low, close, open, date) VALUES ('AAPL',25141489,324.6500,318.2100,320.3000,322.6300,'2020-02-20');
 INSERT INTO article (stockName, volume, high, low, close, open, date) VALUES ('AAPL',32426415,320.4500,310.5000,313.0500,318.6200,'2020-02-21');
 INSERT INTO article (stockName, volume, high, low, close, open, date) VALUES ('AAPL',55548828,304.1800,289.2300,298.1800,297.2600,'2020-02-24');
