@@ -23,6 +23,7 @@ public class Article {
     @Column(name="article_date")
     private LocalDateTime articleDate;
 
+
     public Article(){
 
     }

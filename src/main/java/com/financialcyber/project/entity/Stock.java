@@ -13,25 +13,29 @@ public class Stock {
     private Integer id;
 
     @Column(name="stockName")
-    private final String stockName;
+    private String stockName;
 
     @Column(name="date")
-    private final LocalDate date;
+    private LocalDate date;
 
     @Column(name="volume")
-    private final int volume;
+    private int volume;
 
     @Column(name="high")
-    private final double high;
+    private  double high;
 
     @Column(name="low")
-    private final double low;
+    private  double low;
 
     @Column(name="close")
-    private final double close;
+    private  double close;
 
     @Column(name="open")
-    private final double open;
+    private double open;
+
+    public Stock(){
+
+    }
 
     public Stock(String stockName, LocalDate date, int volume, double high, double low, double close, double open ){
         this.stockName = stockName;
