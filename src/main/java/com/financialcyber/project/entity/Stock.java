@@ -2,7 +2,7 @@ package com.financialcyber.project.entity;
 
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 public class Stock {
@@ -16,7 +16,7 @@ public class Stock {
     private String stockName;
 
     @Column(name="date")
-    private LocalDate date;
+    private LocalDateTime date;
 
     @Column(name="volume")
     private int volume;
@@ -37,7 +37,7 @@ public class Stock {
 
     }
 
-    public Stock(String stockName, LocalDate date, int volume, double high, double low, double close, double open ){
+    public Stock(String stockName, LocalDateTime date, int volume, double high, double low, double close, double open ){
         this.stockName = stockName;
         this.date = date;
         this.volume = volume;
@@ -51,7 +51,7 @@ public class Stock {
         return stockName;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
@@ -73,11 +73,6 @@ public class Stock {
 
     public double getOpen() {
         return open;
-    }
-
-
-    public Integer getId() {
-        return id;
     }
 
 

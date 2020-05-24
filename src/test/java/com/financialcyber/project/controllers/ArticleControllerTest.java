@@ -13,10 +13,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import javax.validation.constraints.AssertTrue;
 
-import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -43,4 +40,15 @@ public class ArticleControllerTest {
                 .andExpect(content().string("5"));
 
     }
+
+//    @Test
+//    public void getIdTest() throws Exception {
+//        Article articleMock = new Article("title", "web", "webId", LocalDateTime.now());
+//
+//        when(articleService.findById(1)).thenReturn(java.util.Optional.of(articleMock));
+//
+//        mockMvc.perform(get("/api/article").param("id", String.valueOf(1)))
+//                .andExpect(status().isOk())
+//                .andExpect(content().string("title"));
+//    }
 }

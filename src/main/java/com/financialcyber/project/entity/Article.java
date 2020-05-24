@@ -36,9 +36,6 @@ public class Article {
         this.articleDate = articleDate;
     }
 
-    public Integer getId() {
-        return id;
-    }
 
     public String getArticleTitle() {
         return articleTitle;

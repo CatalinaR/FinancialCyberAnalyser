@@ -20,8 +20,8 @@ public class ArticleController {
         return articleService.count();
     }
 
-    @GetMapping(path="{id}")
-    public Optional<Article> getId(@PathVariable Integer id){
-        return articleService.findById(id);
-    }
+//    @GetMapping(path="{id}")
+//    public Optional<Article> getId(@PathVariable String id){
+//        return articleService.findById(Integer.valueOf(id));
+//    }
 }
