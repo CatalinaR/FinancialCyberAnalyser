@@ -20,7 +20,7 @@ public class StockServiceImplTest {
     StockService stockService = new StockServiceImpl();
 
     @Test
-    public void count() {
+    public void countTest() {
         when(stockRepository.count()).thenReturn((long) 5);
 
         long result = stockService.count();

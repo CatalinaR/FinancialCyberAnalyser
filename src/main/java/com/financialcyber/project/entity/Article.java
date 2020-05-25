@@ -24,10 +24,6 @@ public class Article {
     private LocalDateTime articleDate;
 
 
-    public Article(){
-
-    }
-
 
     public Article(String articleTitle, String webURL, String webID, LocalDateTime articleDate){
         this.articleTitle = articleTitle;

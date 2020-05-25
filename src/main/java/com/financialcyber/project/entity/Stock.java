@@ -33,9 +33,6 @@ public class Stock {
     @Column(name="open")
     private double open;
 
-    public Stock(){
-
-    }
 
     public Stock(String stockName, LocalDateTime date, int volume, double high, double low, double close, double open ){
         this.stockName = stockName;
